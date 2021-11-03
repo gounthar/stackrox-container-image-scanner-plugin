@@ -1,13 +1,16 @@
-package com.stackrox.jenkins.plugins;
+package com.stackrox.jenkins.plugins.jenkins;
+
+import java.util.List;
 
 import hudson.model.Action;
 import hudson.model.Run;
 import jenkins.model.Jenkins;
-import java.util.List;
+
+import com.stackrox.jenkins.plugins.data.ImageCheckResults;
 
 public class ViewStackroxResultsAction implements Action {
-    private Run<?, ?> build;
-    private List<ImageCheckResults> results;
+    private final Run<?, ?> build;
+    private final List<ImageCheckResults> results;
 
     public ViewStackroxResultsAction(List<ImageCheckResults> results, Run<?, ?> build) {
         this.build = build;
