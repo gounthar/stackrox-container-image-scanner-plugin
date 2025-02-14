@@ -8,12 +8,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.serverError;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.stackrox.model.StorageEmbeddedVulnerabilityScoreVersion.V2;
-import static com.stackrox.model.StorageEmbeddedVulnerabilityScoreVersion.V3;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.IOException;
-import java.time.OffsetDateTime;
 import java.util.List;
 
 import com.github.tomakehurst.wiremock.client.MappingBuilder;
