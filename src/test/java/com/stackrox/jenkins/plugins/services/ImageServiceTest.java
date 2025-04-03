@@ -35,7 +35,7 @@ class ImageServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    public void shouldThrowOn500() {
+    void shouldThrowOn500() {
         MOCK_SERVER.stubFor(post(anyUrl()).willReturn(serverError()
                 .withBodyFile("v1/images/scan/error.json")));
 
@@ -53,7 +53,7 @@ class ImageServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    public void shouldThrowWhenNoDataFor200() throws IOException {
+    void shouldThrowWhenNoDataFor200() throws IOException {
         MOCK_SERVER.stubFor(postImagesScan().willReturn(
                 ok().withBody("{}")));
         Exception exception = assertThrows(NullPointerException.class, () -> imageService.getImageScanResults("nginx:latest"));
@@ -61,7 +61,7 @@ class ImageServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    public void shouldNotFailOnMissingData() throws IOException {
+    void shouldNotFailOnMissingData() throws IOException {
         MOCK_SERVER.stubFor(postImagesScan().willReturn(
                 ok().withBodyFile("v1/images/scan/minimal.json")));
         List<CVE> actual = imageService.getImageScanResults("nginx:latest");
@@ -74,7 +74,7 @@ class ImageServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    public void shouldNotFailOnUnknownEnumValue() throws IOException {
+    void shouldNotFailOnUnknownEnumValue() throws IOException {
         MOCK_SERVER.stubFor(postImagesScan().willReturn(
                 ok().withBodyFile("v1/images/scan/unknown-enum.json")));
         List<CVE> actual = imageService.getImageScanResults("nginx:latest");
